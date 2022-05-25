@@ -121,6 +121,7 @@ const server = new ApolloServer({
     `,
     ...typeDefs,
   ],
+  
   resolvers: withSearchkitResolvers({
     ResultHit: {
       customField: (parent) => `parent id ${parent.id}`,
@@ -131,10 +132,20 @@ const server = new ApolloServer({
   context: {
     ...context,
   },
+ 
 });
 
-const handler = server.createHandler({ path: "/api/graphql" });
 
-export default cors()((req, res) =>
-  req.method === "OPTIONS" ? res.end() : handler(req, res)
-);
+// const handler = server.createHandler({ path: "/api/graphql" });
+
+// export default cors()(async (req, res) =>
+//   
+// );
+const startServer = server.start();
+
+export default cors(async (req, res) => {
+req.method === "OPTIONS" ? res.end() : handler(req, res);
+
+  await startServer;
+  await server.createHandler({ path: "/api/graphql" })(req, res);
+});

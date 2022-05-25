@@ -150,30 +150,15 @@ const ShopGrid = ({
   } = useQuery(query, {
     variables: variables,
   });
-  console.log(data);
-  let arry = [
-    {
-      domain: "brandsroots.com",
-      gender: "",
-      image:
-        "https://cdn.shopify.com/s/files/1/0271/2993/8003/products/next-long-sleeve-crew-neck-jersey-lycra-blouse-for-ladies-slate-grey-with-stripes-an3885_1.jpg?v=1646237398",
-      is_on_sale: true,
-      price: "999",
-      price_before_sale: "3499",
-      product_type: "jersey",
-      title:
-        "Nxt Long Sleeve Crew Neck Jersey Lycra Strech Blouse For Ladies-Slate Grey With Stripes-AN3885",
-      updatedAt: "2022-03-02T21:14:37+05:00",
-      vendor: "Next",
-    },
-  ];
-  // const arr = data?.results?.hits?.items;
-//   data?.results?.hits?.items.map((item) => {
-//     arry = [...arry, { item }];
+  console.log("shopGrid", data);
 
-//     //...arr --> spread operator
-//   });
-//   console.log("new", arry);
+  // const arr = data?.results?.hits?.items;
+  //   data?.results?.hits?.items.map((item) => {
+  //     arry = [...arry, { item }];
+
+  //     //...arr --> spread operator
+  //   });
+  //   console.log("new", arry);
   const [windowSize] = useWindowSize();
   const [productPerPage, setProductPerPage] = useState(containerFluid ? 12 : 8);
   const [layout, setLayout] = useState(

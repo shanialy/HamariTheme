@@ -97,7 +97,7 @@ const Page = () => {
   } = useQuery(query, {
     variables: variables,
   });
-  // console.log(data)
+  console.log("search", data);
   // let arrr = [];
   // data?.results?.hits?.items?.map((item) => {
   //   //   console.log("16", item);
@@ -106,11 +106,7 @@ const Page = () => {
   // });
   // console.log(arrr);
 
-  return (
-    <>
-      
-    </>
-  );
+  return <></>;
 };
 
 export default Page;
